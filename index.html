@@ -40,6 +40,41 @@ footer{text-align:center;color:var(--muted2);padding:20px 0 40px;font-size:.85re
 .f{position:relative;margin:14px 0}.f input{width:100%;padding:22px 14px 8px;border-radius:14px;border:1px solid var(--line);background:var(--field);color:var(--text);font:inherit;outline:0;transition:.2s}
 .f input:focus{border-color:var(--acc);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 13%,transparent)}.f label{position:absolute;left:15px;top:15px;color:var(--muted2);pointer-events:none;transition:.2s}
 .f input:focus+label,.f input:not(:placeholder-shown)+label{top:6px;font-size:.7rem;color:var(--acc)}
+.f select{width:100%;padding:22px 14px 8px;border-radius:14px;border:1px solid var(--line);background:var(--field);color:var(--text);font:inherit;outline:0;transition:.2s;cursor:pointer}.f select:focus{border-color:var(--acc);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 13%,transparent)}.f.fs label{top:6px;font-size:.7rem;color:var(--acc)}
+.dd{position:relative;margin:14px 0;text-align:left}.ddl{display:block;margin:0 0 8px 4px;font:700 .9rem Manrope;color:var(--muted)}.ddl em{color:var(--err);font-style:normal}
+.ddb{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--field);color:var(--text);font:800 1.05rem Manrope;cursor:pointer;outline:0;transition:.25s}
+.ddb .ph{color:var(--muted2);font-weight:700}.ddb svg{flex:none;color:var(--acc);transition:transform .3s}.ddb:hover{border-color:var(--acc)}
+.ddb:focus-visible,.dd.open .ddb{border-color:var(--acc);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 13%,transparent)}.dd.open .ddb svg{transform:scale(1.15)}
+.ddp{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:40;display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px;border-radius:20px;background:var(--dialog);border:1px solid var(--line);box-shadow:var(--pshadow);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top;transition:.22s}
+.dd.open .ddp{opacity:1;visibility:visible;transform:none}
+.ddo{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:11px 14px;border-radius:12px;border:1px solid transparent;background:transparent;color:var(--text);font:700 .95rem Manrope;text-align:left;cursor:pointer;outline:0;transition:.15s;opacity:0;transform:translateY(6px)}
+.dd.open .ddo{opacity:1;transform:none;transition:.25s calc(var(--i)*18ms),background .15s}
+.ddo:hover,.ddo:focus-visible{background:color-mix(in srgb,var(--acc) 14%,transparent);border-color:var(--line)}
+.ddo[aria-selected=true]{background:linear-gradient(135deg,var(--btn-a),var(--btn-b));color:var(--btn-ink)}.ddo svg{width:16px;height:16px;flex:none;display:none}.ddo[aria-selected=true] svg{display:block}
+.ddbk{display:none}
+@media(max-width:600px){.ddp{position:fixed;left:0;right:0;top:auto;bottom:0;border-radius:26px 26px 0 0;padding:18px 14px calc(18px + env(safe-area-inset-bottom,0px));transform:translateY(100%);transform-origin:bottom;z-index:60}.dd.open .ddp{transform:none}.ddbk{display:block;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.25s}.ddbk.on{opacity:1;pointer-events:auto}.ddo{padding:14px}}
+.sdp{display:flex;flex-direction:column;padding:0;overflow:hidden}
+.sds{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line)}.sds svg{width:18px;height:18px;flex:none;color:var(--acc)}
+.sds input{flex:1;min-width:0;border:0;background:transparent;color:var(--text);font:700 1rem Manrope;outline:0}.sds input::placeholder{color:var(--muted2)}.sds small{color:var(--muted2);font:700 .72rem Manrope;white-space:nowrap}
+.sdl{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px;max-height:272px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--acc) transparent}
+.sde{grid-column:1/-1;padding:26px 10px;text-align:center;color:var(--muted2);font-weight:700;line-height:1.6}.sde b{color:var(--acc)}
+.ddo mark{background:none;color:var(--acc);font-weight:800;text-decoration:underline;text-underline-offset:3px}.ddo[aria-selected=true] mark{color:inherit}
+.ddo.oth{margin:2px 10px 10px;justify-content:flex-start;gap:10px;border:1.5px dashed var(--acc);color:var(--acc)}.ddo.oth svg{display:block}.ddo.oth[aria-selected=true]{border-style:solid;color:var(--btn-ink)}
+.sdo{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1),opacity .35s}.sdo.on{grid-template-rows:1fr;opacity:1}
+.sdo>div{overflow:hidden;min-height:0;padding:0 5px 5px;margin:0 -5px}
+.sdo input{width:100%;margin-top:12px;padding:16px 18px;border-radius:16px;border:1px solid var(--acc);background:var(--field);color:var(--text);font:800 1.05rem Manrope;text-transform:uppercase;outline:0;box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 13%,transparent)}.sdo input::placeholder{text-transform:none;font-weight:700;color:var(--muted2)}
+@media(max-width:600px){.sdp{max-height:82vh;padding:0 0 env(safe-area-inset-bottom,0px)}.sdp:before{content:"";display:block;width:42px;height:4px;border-radius:9px;background:var(--line);margin:10px auto 0}.sdl{grid-template-columns:1fr;max-height:none;flex:1;min-height:0}}
+td.ce{cursor:pointer;transition:color .2s}td.ce:hover{color:var(--acc)}td.ce:after{content:" \270E";font-size:.8em;opacity:0;transition:opacity .2s}td.ce:hover:after{opacity:.7}dialog select{width:100%;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:var(--field);color:var(--text);font:inherit;margin:4px 0 10px}
+.ctaw{margin:8px 0 6px}.ctah{display:block;margin-top:16px;color:var(--muted);font-weight:600;font-size:.85rem}
+#b1{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:16px;padding:20px 30px 20px 52px;border-radius:99px;font:800 clamp(1.2rem,4.6vw,1.7rem) Sora;letter-spacing:.01em;animation:ctaP 2.4s ease-in-out infinite;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+#b1:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.7) 50%,transparent 70%);transform:translateX(-120%);animation:ctaS 3.2s ease-in-out infinite}
+#b1:after{content:"\2192";flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--btn-ink);color:var(--btn-a);font:800 1.4rem Manrope;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+#b1:hover{transform:translateY(-4px) scale(1.05)}#b1:hover:after{transform:translateX(6px)}#b1:active{transform:scale(.98)}
+@keyframes ctaP{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--acc) 55%,transparent),0 14px 40px color-mix(in srgb,var(--acc) 35%,transparent)}60%{box-shadow:0 0 0 22px transparent,0 18px 54px color-mix(in srgb,var(--acc) 50%,transparent)}}
+@keyframes ctaS{0%,50%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+nav a[href="#register"]{padding:7px 16px;border-radius:99px;background:linear-gradient(135deg,var(--btn-a),var(--btn-b));color:var(--btn-ink);opacity:1;font-weight:800}nav a[href="#register"]:hover{color:var(--btn-ink);filter:brightness(1.08)}
+@media(max-width:600px){#b1{width:100%;max-width:420px;padding:20px 18px 20px 30px}}
+@media(prefers-reduced-motion:reduce){#b1,#b1:before{animation:none}}
 .err{color:var(--err);min-height:1.3em;font-weight:600}
 #login,#dlogin{max-width:420px;margin:12vh auto;text-align:center}#login h2,#dlogin h2{font:800 1.7rem Sora;margin:.2em 0 .6em}#login .f,#dlogin .f{text-align:left}.rolebadge{display:table;margin:10px auto 4px!important;padding:4px 12px;border:1px solid var(--acc);border-radius:99px;color:var(--acc);font-size:.75rem;font-weight:800;margin-bottom:6px}
 .wrap{max-width:1150px;margin:auto;padding:20px 5vw}.row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.row>*{flex:1;min-width:130px}.row>.sm{flex:none}
@@ -99,14 +134,14 @@ section.on{animation:sec .5s both}@keyframes sec{from{opacity:0}}
 .cd b.t{animation:tk .45s}@keyframes tk{from{transform:translateY(-8px);opacity:.3}}
 @media print{#prog,.tt{display:none!important}}
 </style></head><body>
-<nav><b><span data-k="nav.brand1">Mutha’allims</span> <i data-k="nav.brand2">Sammelanam</i></b><span><a href="#" data-k="nav.home">Home</a><a href="#register" data-k="nav.register">Register</a><a href="#admin" data-k="nav.admin">Admin</a><a href="#developer" data-k="nav.dev">Developer</a><button class=tt id=tt onclick=toggleTheme() aria-label="Switch light / dark theme" title="Light / dark"><svg class=moon viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class=sun viewBox="0 0 24 24"><circle cx=12 cy=12 r=4.5 /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></span></nav>
+<nav><b><span data-k="nav.brand1">Mutha’allims</span> <i data-k="nav.brand2">Sammelanam</i></b><span><a href="#" data-k="nav.home">Home</a><a href="#register" data-k="nav.register">Register</a><a href="#developer" data-k="nav.dev">Developer</a><button class=tt id=tt onclick=toggleTheme() aria-label="Switch light / dark theme" title="Light / dark"><svg class=moon viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class=sun viewBox="0 0 24 24"><circle cx=12 cy=12 r=4.5 /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></span></nav>
 <div id=prog></div>
 <section id=home class=on>
 <svg width=0 height=0 style="position:absolute"><defs>
 <path id=dm d="M0-7 7 0 0 7-7 0z"/></defs></svg>
 <div class=pwrap><div class=pfx><div class=poster><div id=pmedia></div></div></div></div>
 <div class=below><p class="sub rev" id=hsub>Register once, get your personal QR ticket, and walk straight in.</p>
-<div class=rev data-d=120><a class=btn id=b1 href="#register">Register now</a><a class="btn ghost" id=b2 href="#admin">Admin login</a></div>
+<div class="rev ctaw" data-d=120><a class=btn id=b1 href="#register">Register now</a><a id=b2 href="#admin" style="display:none">Admin login</a><small class=ctah>Takes under a minute · Get your personal QR ticket</small></div>
 <div class=cd><div class=rev data-d=0><b id=cd-d>00</b><small data-k="cd.d">days</small></div><div class=rev data-d=110><b id=cd-h>00</b><small data-k="cd.h">hours</small></div><div class=rev data-d=220><b id=cd-m>00</b><small data-k="cd.m">minutes</small></div><div class=rev data-d=330><b id=cd-s>00</b><small data-k="cd.s">seconds</small></div></div></div>
 <div class="evs rev"><div><small data-k="strip.l1">Conference</small><span data-k="strip.v1">Samastha Centenary Conference</span></div><div><small data-k="strip.l2">Venue</small><span data-k="strip.v2">Vengara, Malappuram</span></div><div><small data-k="strip.l3">Date</small><span data-k="strip.v3">19 November 2026</span></div></div>
 <div class=g3 id=hc><div class="glass rev"><small>Date</small><h3>19 November 2026</h3><p>Thursday</p></div><div class="glass rev" data-d=130><small>Venue</small><h3>Vengara</h3><p>Malappuram district, Kerala</p></div><div class="glass rev" data-d=260><small>Your entry</small><h3>One QR ticket</h3><p>Scanned once at the gate by an admin.</p></div></div>
@@ -114,7 +149,7 @@ section.on{animation:sec .5s both}@keyframes sec{from{opacity:0}}
 
 <section id=register><div class=split><div class=aside><h2 data-k="reg.h">Reserve your place</h2><p style="color:var(--muted)" data-k="reg.sub">It takes under a minute.</p><ol><li data-k="reg.s1">Fill in your details</li><li data-k="reg.s2">Get your personal QR ticket</li><li data-k="reg.s3">Show it at the entrance</li></ol></div>
 <div class=glass><div class=f><input id=name placeholder=" " autocomplete=name><label data-k="reg.name">Full name</label></div><div class=f><input id=phone type=tel inputmode=numeric placeholder=" " autocomplete=tel><label data-k="reg.phone">Phone number</label></div>
-<div class=f><input id=campus placeholder=" "><label data-k="reg.campus">Daw’a Campus / Dars</label></div><div class=f><input id=division placeholder=" "><label data-k="reg.div">Division</label></div><div class=f><input id=sector placeholder=" "><label data-k="reg.sector">Native sector</label></div>
+<div class=f><input id=campus placeholder=" "><label data-k="reg.campus">Daw’a Campus / Dars</label></div><div class=dd id=ddw><span class=ddl><span data-k="reg.div">Division</span> <em>*</em></span><button type=button class=ddb id=ddb aria-haspopup=listbox aria-expanded=false><span id=ddv class=ph>Select division</span><svg width=18 height=18 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.4 stroke-linecap=round stroke-linejoin=round><path d="M7 9.5l5-5 5 5M7 14.5l5 5 5-5"/></svg></button><select id=division hidden><option value="" selected disabled hidden></option><option value="Edappal">Edappal</option><option value="Kottakkal">Kottakkal</option><option value="Ponnani">Ponnani</option><option value="Puthanathani">Puthanathani</option><option value="Parappanangadi">Parappanangadi</option><option value="Tanur">Tanur</option><option value="Thenhippalam">Thenhippalam</option><option value="Tirur">Tirur</option><option value="Tirurangadi">Tirurangadi</option><option value="Vailathur">Vailathur</option><option value="Valanchery">Valanchery</option><option value="Vengara">Vengara</option></select><div class=ddp id=ddp role=listbox></div></div><div class=ddbk id=ddbk></div><div class="dd sd" id=sdw><span class=ddl><span data-k="reg.sector">Sector</span> <em>*</em></span><button type=button class=ddb id=sdb aria-haspopup=listbox aria-expanded=false><span id=sdv class=ph>Select sector</span><svg width=18 height=18 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.4 stroke-linecap=round stroke-linejoin=round><path d="M7 9.5l5-5 5 5M7 14.5l5 5 5-5"/></svg></button><input id=sector type=hidden><div class="ddp sdp" id=sdp role=listbox><div class=sds><svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.4 stroke-linecap=round><circle cx=11 cy=11 r=7 /><path d="M20 20l-3.5-3.5"/></svg><input id=sdq placeholder="Search your sector…" autocomplete=off><small id=sdc></small></div><div class=sdl id=sdl></div><button type=button class="ddo oth" id=sdt role=option style="--i:6" aria-selected=false><svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.4 stroke-linecap=round stroke-linejoin=round><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg><span>Other — write my sector</span></button></div><div class=sdo id=sdo><div><input id=sdi placeholder="Type your sector name" maxlength=60 autocomplete=off></div></div></div><div class=ddbk id=sdbk></div>
 <p class=err id=re></p><button class=btn id=rg style="width:100%" onclick=reg() data-k="reg.btn">Get my ticket</button></div></div></section>
 
 <section id=ticket><div style="max-width:480px;margin:auto;padding:16px;text-align:center"><p id=tm>Loading ticket…</p><canvas id=c style="width:100%;border-radius:18px;background:#fff;box-shadow:0 20px 60px #000a"></canvas>
@@ -125,7 +160,7 @@ section.on{animation:sec .5s both}@keyframes sec{from{opacity:0}}
 <p class=err id=le></p><button class=btn style="width:100%" onclick="doLogin('admin')" data-k="adm.btn">Log in</button></div>
 <div id=app class=wrap style="display:none"><div class=row><button class="btn sm" data-r="admin,developer" onclick="tab('dash')">Dashboard</button><button class="btn sm ghost" data-r="admin" onclick="tab('scan')">Scanner</button><button class="btn sm ghost" data-r="developer" onclick="tab('ped')">Photo editor</button><button class="btn sm ghost" data-r="admin,developer" onclick="tab('tpl')">Ticket template</button><button class="btn sm ghost" data-r="developer" onclick="tab('hed')">Home content</button><button class="btn sm ghost" data-r="developer" onclick="tab('txt')">All website text</button><button class="btn sm ghost" data-r="developer" onclick="tab('act')">Activity</button><button class="btn sm ghost" data-r="admin,developer" onclick="tab('set')">Settings</button><button class="btn sm ghost" data-r="admin,developer" onclick=out()>Log out</button></div>
 <div id=dash><div id=stats></div><div id=charts></div><div class=row><input id=fq placeholder="Search name, phone, ID" oninput=draw(1)><select id=fs onchange=draw(1)><option value="">All status<option value=in>Checked in<option value=pending>Pending</select>
-<input id=fd placeholder=Division oninput=draw(1)><input id=fc placeholder=Campus oninput=draw(1)><input id=fn placeholder="Native sector" oninput=draw(1)></div>
+<input id=fd placeholder=Division oninput=draw(1)><input id=fc placeholder=Campus oninput=draw(1)><input id=fn placeholder=Sector list=seclist oninput=draw(1)></div>
 <div class=row><button class="btn sm" onclick=csv()>CSV</button><button class="btn sm" onclick=xlsx()>Excel</button><button class="btn sm" onclick=pdfRep()>PDF</button><button class="btn sm" onclick=wordRep()>Word</button><button class="btn sm" onclick=pngRep()>PNG</button><button class="btn sm ghost" onclick=print()>Print</button><button class="btn sm ghost" onclick=load()>Refresh</button></div>
 <div class=tw><table><thead><tr><th>ID<th>Name<th>Phone<th>Campus<th>Division<th>Sector<th>Registered<th>Status<th></thead><tbody id=tb></tbody></table></div>
 <div class=row style="align-items:center"><button class="btn sm ghost" onclick="draw(pg-1)">Prev</button><span id=pi style="text-align:center;color:var(--muted)"></span><button class="btn sm ghost" onclick="draw(pg+1)">Next</button></div></div>
@@ -166,7 +201,7 @@ section.on{animation:sec .5s both}@keyframes sec{from{opacity:0}}
 <section id=developer><div id=dlogin class=glass><div class=rolebadge data-k="dev.badge">DEVELOPER</div><h2 data-k="dev.h">Developer login</h2><div class=f><input id=de type=email placeholder=" " autocomplete=email autocapitalize=none spellcheck=false><label data-k="dev.user">Gmail</label></div><div class=f><input id=dp type=password placeholder=" " autocomplete=current-password onkeydown="if(event.key==='Enter')doLogin('developer')"><label data-k="dev.pass">Password</label></div>
 <p class=err id=dl></p><button class=btn style="width:100%" onclick="doLogin('developer')" data-k="dev.btn">Log in</button></div></section>
 
-<dialog id=ed><h3 style="font-family:Sora;margin-top:0">Edit registration</h3><input type=hidden id=ed_id><label>Name</label><input id=ed_n><label>Campus / Dars</label><input id=ed_c><label>Division</label><input id=ed_d><label>Native sector</label><input id=ed_s>
+<dialog id=ed><h3 style="font-family:Sora;margin-top:0">Edit registration</h3><input type=hidden id=ed_id><label>Name</label><input id=ed_n><label>Campus / Dars</label><input id=ed_c><label>Division</label><select id=ed_d style="width:100%"><option value=""></option><option value="Edappal">Edappal</option><option value="Kottakkal">Kottakkal</option><option value="Ponnani">Ponnani</option><option value="Puthanathani">Puthanathani</option><option value="Parappanangadi">Parappanangadi</option><option value="Tanur">Tanur</option><option value="Thenhippalam">Thenhippalam</option><option value="Tirur">Tirur</option><option value="Tirurangadi">Tirurangadi</option><option value="Vailathur">Vailathur</option><option value="Valanchery">Valanchery</option><option value="Vengara">Vengara</option></select><label>Sector</label><input id=ed_s list=seclist placeholder="Pick from list or type a sector" autocomplete=off>
 <div class=row><button class="btn sm" onclick=saveEd()>Save</button><button class="btn sm ghost" onclick="ed.close()">Cancel</button></div></dialog>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
@@ -184,8 +219,49 @@ function route(){const h=location.hash.slice(1);
  else if(/^[tv]=/.test(h)||h==='preview'){go('ticket');showTicket(h)}else go('home');window.scrollTo(0,0)}
 addEventListener('hashchange',route);
 
+// ---------- division dropdown ----------
+(function(){const w=document.getElementById('ddw'),b=document.getElementById('ddb'),p=document.getElementById('ddp'),v=document.getElementById('ddv'),bk=document.getElementById('ddbk'),sel=document.getElementById('division');if(!w)return;
+ const ck='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+ p.innerHTML=[...sel.options].filter(o=>o.value).map((o,i)=>`<button type=button class=ddo role=option style="--i:${i}" data-v="${o.value}" aria-selected="false"><span>${o.value}</span>${ck}</button>`).join('');
+ const os=()=>[...p.children];
+ const open=o=>{w.classList.toggle('open',o);bk.classList.toggle('on',o);b.setAttribute('aria-expanded',o);if(o){const s=os().find(e=>e.getAttribute('aria-selected')==='true')||os()[0];setTimeout(()=>s&&s.focus({preventScroll:true}),30)}};
+ const pick=val=>{sel.value=val;v.textContent=val;v.classList.remove('ph');os().forEach(e=>e.setAttribute('aria-selected',e.dataset.v===val));sel.dispatchEvent(new Event('change',{bubbles:true}));open(false);b.focus()};
+ b.onclick=()=>open(!w.classList.contains('open'));bk.onclick=()=>open(false);
+ p.onclick=e=>{const o=e.target.closest('.ddo');if(o)pick(o.dataset.v)};
+ w.addEventListener('keydown',e=>{if(e.key==='Escape'){open(false);b.focus();return}
+  if(!w.classList.contains('open')){if(e.target===b&&(e.key==='ArrowDown'||e.key==='ArrowUp')){e.preventDefault();open(true)}return}
+  const L=os(),i=L.indexOf(document.activeElement),k={ArrowDown:2,ArrowUp:-2,ArrowRight:1,ArrowLeft:-1}[e.key];
+  if(k){e.preventDefault();L[Math.max(0,Math.min(L.length-1,(i<0?0:i+k)))].focus()}});
+ document.addEventListener('click',e=>{if(!w.contains(e.target)&&!bk.contains(e.target))open(false)});
+ window.resetDivision=()=>{sel.value='';v.textContent='Select division';v.classList.add('ph');os().forEach(e=>e.setAttribute('aria-selected','false'))}})();
+
+// ---------- sector dropdown ----------
+const SECTORS="A R NAGAR|ACHANAMBALAM|ALANKODE|ARIYALLUR|ATHAVANAD|B P ANGADI|CHAMRAVATTAM|CHAPPANANGADI|CHELARI|CHELEMBRA EAST|CHELEMBRA WEST|CHEMMAD|CHERIYAMUNDAM|CHERUR|CHERUSHOLA|CHETTIPPADI|CHILAVIL|EDAKKADU|EDAPPAL|EDARIKODE|EDAYUR|ERAMANGALAM|IRINGALLUR|IRINGAVOOR|IRIMBILIYAM|K PURAM|KACHERIPPADI|KADAMPUZHA|KADAPPADI|KALADI|KALPAKANCHERY|KANANCHERY|KANNAMANGALAM|KANMANAM|KAREKKADU|KAVUMPURAM|KODINHI|KODUNGALLUR|KOIYYODU|KOLAPPURAM|KOOTTAYI|KOORIYAD|KOTTAKKAL|KOTTUR|KUNDOOR|KUNNUMPURAM|KUTTALOOR|KUTTIPPALA|KUTTIPPURAM|MARAKKARA|MARANCHERY|MOONNIYUR|NADUVATTAM|NANNAMBRA|NANNAMMUKKU|NEDUVA|NIRAMARUTHUR|OMACHAPPUZHA|OORAKAM|OTHUKKUNGAL|OZHUR|PANAMPAD|PANTHARANGADI|PARAMBIL PEEDIKA|PARAMMALANGADI|PARAPPANANGADI|PARAPPUR|PARAVANNA|PATTARNADAKKAVU|PERUMANNA|PERUMPADAPPU|PERUVALLUR|PONMALA|PONMUNDAM|PONNANI|PUKAYUR|PULLUR|PURATHUR|PUTHANATHANI|PUTHOOR|RANDATHANI|TANALUR|TANUR|TANUR TOWN|THALAKKADATHUR|THAVANOOR|THENHIPPALAM|THENNALA|THIRUNAVAYA|THUVVAKKAD|TIRUR|TIRURANGADI|TRIPRANGODE|VADAKKUMPURAM|VAILATHUR|VALAKKULAM|VALAVANNOOR|VALANCHERY|VALLIKKUNNU|VATTAMKULAM|VELIMUKKU|VELIYANKODE|VENGARA|VENNIYUR".split('|');
+document.body.insertAdjacentHTML('beforeend','<datalist id=seclist>'+SECTORS.map(n=>'<option value="'+n+'">').join('')+'</datalist>');
+(function(){const D=document,g=i=>D.getElementById(i),w=g('sdw'),b=g('sdb'),p=g('sdp'),v=g('sdv'),bk=g('sdbk'),sel=g('sector'),q=g('sdq'),c=g('sdc'),l=g('sdl'),t=g('sdt'),o=g('sdo'),oi=g('sdi');if(!w)return;
+ const ck='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+ const X=s=>s.replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));let cur='';
+ const render=()=>{const Q=q.value.trim().toUpperCase(),L=SECTORS.filter(n=>!Q||n.includes(Q));
+  l.innerHTML=L.length?L.map((n,i)=>`<button type=button class=ddo role=option style="--i:${Math.min(i,14)}" data-v="${n}" aria-selected="${n===cur}"><span>${Q?n.replace(Q,'<mark>'+Q+'</mark>'):n}</span>${ck}</button>`).join(''):`<div class=sde>No sector matches “${X(q.value.trim())}”<br>Choose <b>Other</b> below to write it</div>`;
+  c.textContent=Q?L.length+' found':SECTORS.length+' sectors'};
+ const open=on=>{w.classList.toggle('open',on);bk.classList.toggle('on',on);b.setAttribute('aria-expanded',on);
+  if(on){q.value='';render();setTimeout(()=>{const s=l.querySelector('[aria-selected=true]');if(s)s.scrollIntoView({block:'center'});if(!matchMedia('(pointer:coarse)').matches)q.focus({preventScroll:true})},60)}};
+ const pick=val=>{cur=val;sel.value=val;v.textContent=val;v.classList.remove('ph');t.setAttribute('aria-selected',false);o.classList.remove('on');oi.value='';open(false);b.focus()};
+ const other=()=>{cur='OTHER';sel.value='';v.textContent='Other';v.classList.remove('ph');t.setAttribute('aria-selected',true);o.classList.add('on');open(false);setTimeout(()=>oi.focus(),380)};
+ b.onclick=()=>open(!w.classList.contains('open'));bk.onclick=()=>open(false);t.onclick=other;
+ l.onclick=e=>{const x=e.target.closest('.ddo');if(x)pick(x.dataset.v)};
+ q.oninput=render;oi.oninput=()=>{sel.value=oi.value.trim().toUpperCase()};
+ w.addEventListener('keydown',e=>{if(e.key==='Escape'){open(false);b.focus();return}
+  if(!w.classList.contains('open')){if(e.target===b&&(e.key==='ArrowDown'||e.key==='ArrowUp')){e.preventDefault();open(true)}return}
+  const L=[...l.querySelectorAll('.ddo'),t],i=L.indexOf(D.activeElement);
+  if(e.target===q){if(e.key==='ArrowDown'){e.preventDefault();L[0].focus()}else if(e.key==='Enter'){e.preventDefault();const f=l.querySelector('.ddo');f?pick(f.dataset.v):other()}return}
+  const k={ArrowDown:1,ArrowRight:1,ArrowUp:-1,ArrowLeft:-1}[e.key];if(!k)return;e.preventDefault();
+  if(i+k<0)q.focus();else L[Math.min(L.length-1,i+k)].focus()});
+ D.addEventListener('click',e=>{if(!w.contains(e.target)&&!bk.contains(e.target))open(false)});
+ window.sectorErr=()=>cur==='OTHER'?(sel.value?'':'Please write your sector name.'):(sel.value?'':'Please select your sector.')})();
+
 // ---------- registration ----------
-async function reg(){re.textContent='';if(!sb)return re.textContent='Site not configured (Supabase keys missing).';rg.disabled=true;
+async function reg(){re.textContent='';if(!$('division').value)return re.textContent='Please select your division.';const se=window.sectorErr&&sectorErr();if(se)return re.textContent=se;if(!sb)return re.textContent='Site not configured (Supabase keys missing).';rg.disabled=true;
  const{data,error}=await sb.rpc('register_student',{p_name:$('name').value,p_phone:$('phone').value,p_campus:$('campus').value,p_division:$('division').value,p_sector:$('sector').value});
  rg.disabled=false;if(error)return re.textContent=error.message;location.hash='t='+data.token}
 
@@ -245,7 +321,7 @@ async function load(){const{data,error}=await sb.from('registrations').select('*
 const no=r=>String(r.id).padStart(3,'0'),has=(a,b)=>String(a).toLowerCase().includes(b.toLowerCase());
 function filtered(){const q=fq.value.trim();return rows.filter(r=>(!q||has(r.name,q)||has(r.phone,q)||no(r).includes(q))&&(!fs.value||(fs.value==='in')===!!r.checked_in_at)&&has(r.division,fd.value)&&has(r.campus,fc.value)&&has(r.sector,fn.value))}
 function draw(n){const f=filtered(),pages=Math.max(1,Math.ceil(f.length/25));pg=Math.min(Math.max(1,n),pages);
- $('tb').innerHTML=f.slice((pg-1)*25,pg*25).map(r=>`<tr><td>${no(r)}<td>${esc(r.name)}<td>${esc(r.phone)}<td>${esc(r.campus)}<td>${esc(r.division)}<td>${esc(r.sector)}<td>${new Date(r.created_at).toLocaleString()}<td><span class="pill ${r.checked_in_at?'in':'pn'}">${r.checked_in_at?'Checked in':'Pending'}</span><td style="white-space:nowrap">${r.checked_in_at?`<button class="btn sm ghost" onclick="undo(${r.id})">Undo check-in</button> `:''}<button class="btn sm ghost" onclick="edit(${r.id})">Edit</button> <button class="btn sm ghost" onclick="del(${r.id})">Delete</button>`).join('');
+ $('tb').innerHTML=f.slice((pg-1)*25,pg*25).map(r=>`<tr><td>${no(r)}<td>${esc(r.name)}<td>${esc(r.phone)}<td>${esc(r.campus)}<td class=ce onclick="edit(${r.id},'ed_d')" title="Tap to edit division">${esc(r.division)}<td class=ce onclick="edit(${r.id},'ed_s')" title="Tap to edit sector">${esc(r.sector)}<td>${new Date(r.created_at).toLocaleString()}<td><span class="pill ${r.checked_in_at?'in':'pn'}">${r.checked_in_at?'Checked in':'Pending'}</span><td style="white-space:nowrap">${r.checked_in_at?`<button class="btn sm ghost" onclick="undo(${r.id})">Undo check-in</button> `:''}<button class="btn sm ghost" onclick="edit(${r.id})">Edit</button> <button class="btn sm ghost" onclick="del(${r.id})">Delete</button>`).join('');
  pi.textContent=`Page ${pg} of ${pages} · ${f.length} records`}
 async function del(id){if(confirm('Delete this registration permanently? The remaining registration numbers will be renumbered automatically (001, 002, 003…).')){await sb.from('registrations').delete().eq('id',id);log('delete','#'+id);load()}}
 function csv(){log('export','csv');const e=v=>`"${String(v??'').replace(/"/g,'""').replace(/^([=+\-@])/,"'$1")}"`;
@@ -279,8 +355,8 @@ async function chPass(){pm.style.color='var(--err)';
 async function forceChange(){const{data}=await sb.auth.getUser();if(data.user&&data.user.user_metadata&&data.user.user_metadata.must_change){tab('set');pm.style.color='var(--acc)';pm.textContent='First login: please set a new password to continue.'}}
 function charts(){const by=k=>Object.entries(rows.reduce((o,r)=>(o[r[k]]=(o[r[k]]||0)+1,o),{})).sort((a,b)=>b[1]-a[1]).slice(0,8);
  const box=(t,l)=>{const m=l[0]?l[0][1]:1;return `<div class=glass style="padding:16px"><b>${t}</b>${l.map(([k,n])=>`<div class=bar><i style="width:${n/m*100}%"></i><span>${esc(k)}</span><em>${n}</em></div>`).join('')||'<p>No data yet</p>'}</div>`};
- $('charts').innerHTML=box('By division',by('division'))+box('By campus / Dars',by('campus'))+box('By native sector',by('sector'))}
-const XH=['Registration ID','Name','Phone','Campus / Dars','Division','Native sector','Registered','Attendance','Checked in at'];
+ $('charts').innerHTML=box('By division',by('division'))+box('By campus / Dars',by('campus'))+box('By sector',by('sector'))}
+const XH=['Registration ID','Name','Phone','Campus / Dars','Division','Sector','Registered','Attendance','Checked in at'];
 const XR=()=>filtered().map(r=>[no(r),r.name,r.phone,r.campus,r.division,r.sector,new Date(r.created_at).toLocaleString(),r.checked_in_at?'Checked in':'Pending',r.checked_in_at?new Date(r.checked_in_at).toLocaleString():'']);
 function save(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}
 function xlsx(){log('export','xlsx');const ws=XLSX.utils.aoa_to_sheet([XH,...XR()]);ws['!cols']=XH.map(()=>({wch:22}));const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Registrations');XLSX.writeFile(wb,'registrations.xlsx')}
@@ -296,8 +372,8 @@ function pngRep(){log('export','pngRep');const f=filtered().slice(0,40),R=XR(),c
  const X=[30,130,430,580,800,960,1130,1260];[XH[0],XH[1],XH[2],XH[3],XH[4],XH[5],XH[6],XH[7]].forEach((t,i)=>{g.fillStyle='#1E5E8E';g.font='800 15px Manrope,sans-serif';g.fillText(t,X[i],134)});
  R.slice(0,40).forEach((r,j)=>{g.fillStyle=j%2?'#fff':'#e8f4fb';g.fillRect(20,146+j*34,w-40,34);g.fillStyle='#111';g.font='500 15px Manrope,sans-serif';r.slice(0,8).forEach((v,i)=>g.fillText(String(v).slice(0,i===1?34:i===3?28:22),X[i],168+j*34))});
  cv.toBlob(b=>save(b,'registrations.png'))}
-function edit(id){const r=rows.find(x=>x.id===id);ed_id.value=id;ed_n.value=r.name;ed_c.value=r.campus;ed_d.value=r.division;ed_s.value=r.sector;ed.showModal()}
-async function saveEd(){const{error}=await sb.from('registrations').update({name:ed_n.value.trim(),campus:ed_c.value.trim(),division:ed_d.value.trim(),sector:ed_s.value.trim()}).eq('id',+ed_id.value);if(error)return alert(error.message);ed.close();log('edit','#'+ed_id.value);load()}
+function edit(id,f){const r=rows.find(x=>x.id===id);ed_id.value=id;ed_n.value=r.name;ed_c.value=r.campus;if(r.division&&![...ed_d.options].some(o=>o.value===r.division)){const o=new Option(r.division,r.division);ed_d.add(o)}ed_d.value=r.division||'';ed_s.value=r.sector;ed.showModal();if(f)setTimeout(()=>$(f).focus(),60)}
+async function saveEd(){const{error}=await sb.from('registrations').update({name:ed_n.value.trim(),campus:ed_c.value.trim(),division:ed_d.value.trim(),sector:ed_s.value.trim().toUpperCase()}).eq('id',+ed_id.value);if(error)return alert(error.message);ed.close();log('edit','#'+ed_id.value);load()}
 var TARGET=new Date('2026-11-19T09:00:00+05:30');
 let SITE={},jd=false;const ms=m=>{$('txm').textContent=m;$('mmsg').textContent=m;$('pe_msg').textContent=m;$('tp_msg').textContent=m};
 $('cardf').innerHTML=[0,1,2].map(i=>`<label>Card ${i+1}</label><input id=e_c${i}l placeholder=label><input id=e_c${i}t placeholder=title><input id=e_c${i}p placeholder=text>`).join('');

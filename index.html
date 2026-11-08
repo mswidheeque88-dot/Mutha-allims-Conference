@@ -147,6 +147,14 @@ nav a{position:relative}nav a:not([href="#register"]):before{content:"";position
 @media(min-width:900px){#register .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,5vw,72px);align-items:center;width:100%;box-sizing:border-box;max-width:1160px;padding:34px 5vw 10px}
 .rposter{margin:0;border-radius:32px;box-shadow:0 30px 70px rgba(5,30,55,.45);animation:rUp .8s cubic-bezier(.22,1,.36,1) backwards,flt 8s 1s ease-in-out infinite alternate}
 #register .glass{padding:clamp(28px,3vw,42px)}#register{display:none}#register.on{display:flex;flex-direction:column;justify-content:center}}
+#register{overflow:visible}
+.ddbk{touch-action:none}.ddo{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.dd.up .ddp{top:auto;bottom:calc(100% + 8px);transform-origin:bottom}
+@media(max-width:600px){
+.ddp,.sdp{left:12px;right:12px;top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 92px);border-radius:26px;transform:translateY(40px) scale(.97);transform-origin:bottom}
+.ddp{padding:14px 10px}.sdp{padding:0;max-height:calc(100vh - 200px);max-height:calc(100dvh - 200px)}.sdp:before{display:none}
+.dd.open .ddp,.dd.open .sdp{transform:none}.ddo{padding:15px 14px}}
+.cs{display:block;margin:2px 0 8px;color:var(--muted2);font-size:.75rem;font-weight:700}.cscroll{max-height:520px;overflow-y:auto;padding-right:6px;scrollbar-width:thin}.bar.z i{opacity:.2}.bar.z em,.bar.z span{opacity:.6}
 .err{color:var(--err);min-height:1.3em;font-weight:600}
 #login,#dlogin{max-width:420px;margin:12vh auto;text-align:center}#login h2,#dlogin h2{font:800 1.7rem 'Bricolage Grotesque',Sora;margin:.2em 0 .6em}#login .f,#dlogin .f{text-align:left}.rolebadge{display:table;margin:10px auto 4px!important;padding:4px 12px;border:1px solid var(--acc);border-radius:99px;color:var(--acc);font-size:.75rem;font-weight:800;margin-bottom:6px}
 .wrap{max-width:1150px;margin:auto;padding:20px 5vw}.row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.row>*{flex:1;min-width:130px}.row>.sm{flex:none}
@@ -297,7 +305,7 @@ addEventListener('hashchange',route);
  const ck='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
  p.innerHTML=[...sel.options].filter(o=>o.value).map((o,i)=>`<button type=button class=ddo role=option style="--i:${i}" data-v="${o.value}" aria-selected="false"><span>${o.value}</span>${ck}</button>`).join('');
  const os=()=>[...p.children];
- const open=o=>{if(matchMedia('(max-width:600px)').matches)document.documentElement.style.overflow=o?'hidden':'';w.classList.toggle('open',o);bk.classList.toggle('on',o);b.setAttribute('aria-expanded',o);if(o){const s=os().find(e=>e.getAttribute('aria-selected')==='true')||os()[0];setTimeout(()=>s&&s.focus({preventScroll:true}),30)}};
+ const fit=()=>{w.classList.remove('up');if(matchMedia('(max-width:600px)').matches)return;const r=w.getBoundingClientRect(),H=p.offsetHeight+16,below=innerHeight-r.bottom;if(H>below&&r.top>below)w.classList.add('up')};const open=o=>{if(o)fit();w.classList.toggle('open',o);bk.classList.toggle('on',o);b.setAttribute('aria-expanded',o);if(o){const s=os().find(e=>e.getAttribute('aria-selected')==='true')||os()[0];setTimeout(()=>s&&s.focus({preventScroll:true}),30)}};
  const pick=val=>{sel.value=val;v.textContent=val;v.classList.remove('ph');os().forEach(e=>e.setAttribute('aria-selected',e.dataset.v===val));sel.dispatchEvent(new Event('change',{bubbles:true}));open(false);b.focus()};
  b.onclick=()=>open(!w.classList.contains('open'));bk.onclick=()=>open(false);
  p.onclick=e=>{const o=e.target.closest('.ddo');if(o)pick(o.dataset.v)};
@@ -317,7 +325,7 @@ document.body.insertAdjacentHTML('beforeend','<datalist id=seclist>'+SECTORS.map
  const render=()=>{const Q=q.value.trim().toUpperCase(),L=SECTORS.filter(n=>!Q||n.includes(Q));
   l.innerHTML=L.length?L.map((n,i)=>`<button type=button class=ddo role=option style="--i:${Math.min(i,14)}" data-v="${n}" aria-selected="${n===cur}"><span>${Q?n.replace(Q,'<mark>'+Q+'</mark>'):n}</span>${ck}</button>`).join(''):`<div class=sde>No native sector matches “${X(q.value.trim())}”<br>Choose <b>Other</b> below to write it</div>`;
   c.textContent=Q?L.length+' found':SECTORS.length+' sectors'};
- const open=on=>{if(matchMedia('(max-width:600px)').matches)document.documentElement.style.overflow=on?'hidden':'';w.classList.toggle('open',on);bk.classList.toggle('on',on);b.setAttribute('aria-expanded',on);
+ const fit=()=>{w.classList.remove('up');l.style.maxHeight='';if(matchMedia('(max-width:600px)').matches)return;const r=w.getBoundingClientRect(),below=innerHeight-r.bottom-16,above=r.top-80,up=above>below,avail=Math.max(up?above:below,170),h0=p.offsetHeight-l.offsetHeight;l.style.maxHeight=Math.max(130,Math.min(272,avail-h0))+'px';if(up)w.classList.add('up')};const open=on=>{if(on){q.value='';render();fit()}w.classList.toggle('open',on);bk.classList.toggle('on',on);b.setAttribute('aria-expanded',on);
   if(on){q.value='';render();setTimeout(()=>{const s=l.querySelector('[aria-selected=true]');if(s)s.scrollIntoView({block:'center'});if(!matchMedia('(pointer:coarse)').matches)q.focus({preventScroll:true})},60)}};
  const pick=val=>{cur=val;sel.value=val;v.textContent=val;v.classList.remove('ph');t.setAttribute('aria-selected',false);o.classList.remove('on');oi.value='';open(false);b.focus()};
  const other=()=>{cur='OTHER';sel.value='';v.textContent='Other';v.classList.remove('ph');t.setAttribute('aria-selected',true);o.classList.add('on');open(false);setTimeout(()=>oi.focus(),380)};
@@ -458,9 +466,11 @@ async function chPass(){pm.style.color='var(--err)';
  const{error}=await sb.auth.updateUser({password:np.value,data:{must_change:false}});
  if(error)return pm.textContent=error.message;cp.value=np.value=np2.value='';pm.style.color='var(--acc2)';pm.textContent='Password updated.';log('password change','')}
 async function forceChange(){const{data}=await sb.auth.getUser();if(data.user&&data.user.user_metadata&&data.user.user_metadata.must_change){tab('set');pm.style.color='var(--acc)';pm.textContent='First login: please set a new password to continue.'}}
-function charts(){const by=k=>Object.entries(rows.reduce((o,r)=>(o[r[k]]=(o[r[k]]||0)+1,o),{})).sort((a,b)=>b[1]-a[1]).slice(0,8);
- const box=(t,l)=>{const m=l[0]?l[0][1]:1;return `<div class=glass style="padding:16px"><b>${t}</b>${l.map(([k,n])=>`<div class=bar><i style="width:${n/m*100}%"></i><span>${esc(k)}</span><em>${n}</em></div>`).join('')||'<p>No data yet</p>'}</div>`};
- $('charts').innerHTML=box('By division',by('division'))+box('By campus / Dars',by('campus'))+box('By native sector',by('sector'))}
+function charts(){const U=v=>String(v==null?'':v).trim().toUpperCase(),
+ by=(k,base=[])=>{const o={};base.forEach(b=>o[b]=0);rows.forEach(r=>{const v=U(r[k])||'(NOT SET)';o[v]=(o[v]||0)+1});return Object.entries(o).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))},
+ box=(t,l,sc,total)=>{const m=Math.max(1,...l.map(x=>x[1])),used=l.filter(x=>x[1]>0).length;return `<div class=glass style="padding:16px"><b>${t}</b><small class=cs>${used} of ${total||l.length} with registrations</small><div${sc?' class=cscroll':''}>${l.map(([k,n])=>`<div class="bar${n?'':' z'}"><i style="width:${n/m*100}%"></i><span>${esc(k)}</span><em>${n}</em></div>`).join('')||'<p>No data yet</p>'}</div></div>`},
+ divs=[...document.getElementById('division').options].map(o=>o.value).filter(Boolean),cats=[...document.querySelectorAll('#catw .chip')].map(b=>b.dataset.v),camp=by('campus');
+ $('charts').innerHTML=box('By division',by('division',divs))+box('By category',by('category',cats))+box('By native sector',by('sector',SECTORS),true)+box('By campus / Dars (top 10)',camp.slice(0,10),false,camp.length)}
 const XH=['Registration ID','Name','Phone','Campus / Dars','Division','Native sector','Category','Registered','Attendance','Checked in at'];
 const XR=()=>filtered().map(r=>[no(r),r.name,r.phone,r.campus,r.division,r.sector,r.category||'',new Date(r.created_at).toLocaleString(),r.checked_in_at?'Checked in':'Pending',r.checked_in_at?new Date(r.checked_in_at).toLocaleString():'']);
 function save(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}

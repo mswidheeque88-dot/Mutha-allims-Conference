@@ -217,6 +217,11 @@ section.on{animation:sec .5s both}@keyframes sec{from{opacity:0;transform:transl
 .bar span{display:block;max-width:calc(100% - 48px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;box-sizing:border-box}
 .loc{max-width:1050px;margin:0 auto 28px;padding:0 5vw}.loc .glass{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}.loc small{color:var(--acc2);font-weight:700}.loc h3{font:800 1.25rem 'Bricolage Grotesque',Sora;margin:.2em 0}.loc p{margin:0;color:var(--muted)}
 .wa{display:flex;gap:14px;align-items:center;text-align:left;margin:18px 0;padding:16px 18px;border-radius:20px;border:1px solid var(--line);background:var(--glass)}.wa b{display:block;font:800 1rem 'Bricolage Grotesque',Sora}.wa span{color:var(--muted);font-size:.85rem}.wa .btn{background:#25D366;color:#06301a;box-shadow:none;margin-left:auto;white-space:nowrap;text-align:center}.wa svg{flex:none;width:34px;height:34px;fill:#25D366}
+
+.gsel{width:100%;padding:16px;border-radius:14px;border:1px solid var(--line);background:var(--field);color:var(--text);font:inherit;margin:0 0 14px;appearance:auto}.gsel option{color:#062236}
+.gcards{display:grid;gap:16px;margin:22px 0}.gc{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}.gc h3{font:800 1.4rem 'Bricolage Grotesque',Sora;margin:.15em 0}.gc p{margin:0;color:var(--muted)}.gc small{color:var(--acc2);font-weight:700}
+.pg{max-width:720px;margin:auto;padding:90px 5vw 40px}.pg h2{font:800 2rem 'Bricolage Grotesque',Sora;margin:0 0 6px}
+.closed{margin:10px 0 0;color:var(--err);font-weight:700;font-size:.9rem}
 </style></head><body>
 <nav><b><span data-k="nav.brand1">Mutha’allims</span> <i data-k="nav.brand2">Sammelanam</i></b><span><a href="#" data-k="nav.home">Home</a><a href="#register" data-k="nav.register">Register</a><a href="#admin" data-k="nav.admin">Admin</a><a href="#developer" data-k="nav.dev">Developer</a><button class=tt id=tt onclick=toggleTheme() aria-label="Switch light / dark theme" title="Light / dark"><svg class=moon viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class=sun viewBox="0 0 24 24"><circle cx=12 cy=12 r=4.5 /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></span></nav>
 <div id=prog></div>
@@ -225,7 +230,7 @@ section.on{animation:sec .5s both}@keyframes sec{from{opacity:0;transform:transl
 <path id=dm d="M0-7 7 0 0 7-7 0z"/></defs></svg>
 <div class=pwrap><div class=pfx><div class=poster><div id=pmedia></div></div></div></div>
 <div class=below><div class="tw rev"><span id=tw></span><i class=caret></i></div><p class="sub rev" id=hsub>Register once, get your personal QR ticket, and walk straight in.</p>
-<div class="rev ctaw" data-d=120><a class=btn id=b1 href="#register">Register now</a><a id=b2 href="#admin" style="display:none">Admin login</a><small class=ctah>Takes under a minute · Get your personal QR ticket</small></div>
+<div class="rev ctaw" data-d=120><a class=btn id=b1 href="#games">Register for games</a><a id=b2 href="#admin" style="display:none">Admin login</a><small class=ctah>Main registration is closed · Game registrations are open</small></div>
 <div class=cd><div class=rev data-d=0><b id=cd-d>00</b><small data-k="cd.d">days</small></div><div class=rev data-d=110><b id=cd-h>00</b><small data-k="cd.h">hours</small></div><div class=rev data-d=220><b id=cd-m>00</b><small data-k="cd.m">minutes</small></div><div class=rev data-d=330><b id=cd-s>00</b><small data-k="cd.s">seconds</small></div></div></div>
 <div class="evs rev"><div><small data-k="strip.l1">Conference</small><span data-k="strip.v1">Samastha Centenary Conference</span></div><div><small data-k="strip.l2">Venue</small><span data-k="strip.v2">Vengara, Malappuram</span></div><div><small data-k="strip.l3">Date</small><span data-k="strip.v3">19 November 2026</span></div></div>
 <div class=mq id=mq aria-hidden=true><div class=mqt id=mqt></div></div>
@@ -238,6 +243,12 @@ section.on{animation:sec .5s both}@keyframes sec{from{opacity:0;transform:transl
 <div class=f><input id=campus placeholder=" "><label data-k="reg.campus">Daw’a Campus / Dars</label></div><div class=dd id=ddw><span class=ddl><span data-k="reg.div">Division</span> <em>*</em></span><button type=button class=ddb id=ddb aria-haspopup=listbox aria-expanded=false><span id=ddv class=ph>Select division</span><svg width=18 height=18 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.4 stroke-linecap=round stroke-linejoin=round><path d="M7 9.5l5-5 5 5M7 14.5l5 5 5-5"/></svg></button><select id=division hidden><option value="" selected disabled hidden></option><option value="ALATHIYUR">ALATHIYUR</option><option value="EDAPPAL">EDAPPAL</option><option value="KOTTAKKAL">KOTTAKKAL</option><option value="PONNANI">PONNANI</option><option value="PUTHANATHANI">PUTHANATHANI</option><option value="PARAPPANANGADI">PARAPPANANGADI</option><option value="TANUR">TANUR</option><option value="THENHIPPALAM">THENHIPPALAM</option><option value="TIRUR">TIRUR</option><option value="TIRURANGADI">TIRURANGADI</option><option value="VAILATHUR">VAILATHUR</option><option value="VALANCHERY">VALANCHERY</option><option value="VENGARA">VENGARA</option></select><div class=ddbk id=ddbk></div><div class=ddp id=ddp role=listbox></div></div><div class="dd sd" id=sdw><span class=ddl><span data-k="reg.sector">Native sector</span> <em>*</em></span><button type=button class=ddb id=sdb aria-haspopup=listbox aria-expanded=false><span id=sdv class=ph>Select native sector</span><svg width=18 height=18 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.4 stroke-linecap=round stroke-linejoin=round><path d="M7 9.5l5-5 5 5M7 14.5l5 5 5-5"/></svg></button><input id=sector type=hidden><div class=ddbk id=sdbk></div><div class="ddp sdp" id=sdp role=listbox><div class=sds><svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.4 stroke-linecap=round><circle cx=11 cy=11 r=7 /><path d="M20 20l-3.5-3.5"/></svg><input id=sdq placeholder="Search native sector…" autocomplete=off><small id=sdc></small></div><div class=sdl id=sdl></div><button type=button class="ddo oth" id=sdt role=option style="--i:6" aria-selected=false><svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.4 stroke-linecap=round stroke-linejoin=round><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg><span>Other — write my native sector</span></button></div><div class=sdo id=sdo><div><input id=sdi placeholder="Type your native sector name" maxlength=60 autocomplete=off></div></div></div>
 <p class=err id=re></p><button class=btn id=rg style="width:100%" onclick=reg() data-k="reg.btn">Get my ticket</button><a class=wa href="https://chat.whatsapp.com/HurMFXJpKkPCQd1w0Bwwdf?s=cl&p=a&iam=2" target=_blank rel=noopener><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg><div><b>Join our WhatsApp group</b><span>Updates and announcements</span></div><span class=btn style="padding:10px 16px">Join</span></a></div></div><footer id=rfoot></footer></section>
 
+<section id=regclosed><div class=pg style="text-align:center"><div class=glass><h2>Registration closed</h2><p style="color:var(--muted)">Main registration for the conference is now closed. If you already registered, open your saved ticket link. Game registrations are open.</p><div class=row style="justify-content:center"><a class=btn href="#games">Register for games</a><a class="btn ghost" href="#">Home</a></div></div></div></section>
+
+<section id=games><div class=pg><h2>Games registration</h2><p style="color:var(--muted);margin:0">Choose a game. Each game has only 30 seats.</p><div class=gcards id=gcards><p style="color:var(--muted)">Loading…</p></div><a href="#" style="color:var(--acc2)">← Home</a></div></section>
+
+<section id=gform><div class=pg><a href="#games" style="color:var(--acc2)">← All games</a><h2 id=gm_t style="margin-top:14px">Register</h2><p id=gm_s style="color:var(--muted);margin:0 0 16px"></p><div class=glass id=gm_box><div class=f><input id=gm_name placeholder=" " autocomplete=name><label>Name</label></div><div class=f><input id=gm_phone type=tel inputmode=numeric maxlength=10 placeholder=" " autocomplete=tel><label>Phone number</label></div><select id=gm_div class=gsel><option value="" selected disabled>Select division</option><option value="ALATHIYUR">ALATHIYUR</option><option value="EDAPPAL">EDAPPAL</option><option value="KOTTAKKAL">KOTTAKKAL</option><option value="PONNANI">PONNANI</option><option value="PUTHANATHANI">PUTHANATHANI</option><option value="PARAPPANANGADI">PARAPPANANGADI</option><option value="TANUR">TANUR</option><option value="THENHIPPALAM">THENHIPPALAM</option><option value="TIRUR">TIRUR</option><option value="TIRURANGADI">TIRURANGADI</option><option value="VAILATHUR">VAILATHUR</option><option value="VALANCHERY">VALANCHERY</option><option value="VENGARA">VENGARA</option></select><p class=err id=gm_e></p><button class=btn id=gm_b style="width:100%" onclick=regGame()>Get my ticket</button></div></div></section>
+
 <section id=ticket><div style="max-width:480px;margin:auto;padding:16px;text-align:center"><p id=tm>Loading ticket…</p><canvas id=c style="width:100%;border-radius:18px;background:#fff;box-shadow:0 20px 60px #000a"></canvas>
 <div class=row style="justify-content:center"><button class="btn sm" id=png data-k="tk.png">Download PNG</button><button class="btn sm" id=pdf data-k="tk.pdf">Download PDF</button><button class="btn sm" id=prt data-k="tk.prt">Print</button></div>
 <a class=wa href="https://chat.whatsapp.com/HurMFXJpKkPCQd1w0Bwwdf?s=cl&p=a&iam=2" target=_blank rel=noopener><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg><div><b>Join our WhatsApp group</b><span>Get updates for the conference</span></div><span class=btn style="padding:10px 16px">Join</span></a>
@@ -245,7 +256,8 @@ section.on{animation:sec .5s both}@keyframes sec{from{opacity:0;transform:transl
 
 <section id=admin><div id=login class=glass><div class=rolebadge data-k="adm.badge">ADMIN</div><h2 data-k="adm.h">Admin login</h2><div class=f><input id=ue placeholder=" " autocomplete=username autocapitalize=none spellcheck=false><label data-k="adm.user">Username</label></div><div class=f><input id=up type=password placeholder=" " autocomplete=current-password onkeydown="if(event.key==='Enter')doLogin('admin')"><label data-k="adm.pass">Password</label></div>
 <p class=err id=le></p><button class=btn style="width:100%" onclick="doLogin('admin')" data-k="adm.btn">Log in</button></div>
-<div id=app class=wrap style="display:none"><div class=row><button class="btn sm" data-r="admin,developer" onclick="tab('dash')">Dashboard</button><button class="btn sm ghost" data-r="admin" onclick="tab('scan')">Scanner</button><button class="btn sm ghost" data-r="developer" onclick="tab('ped')">Photo editor</button><button class="btn sm ghost" data-r="admin,developer" onclick="tab('tpl')">Ticket template</button><button class="btn sm ghost" data-r="developer" onclick="tab('hed')">Home content</button><button class="btn sm ghost" data-r="developer" onclick="tab('txt')">All website text</button><button class="btn sm ghost" data-r="developer" onclick="tab('act')">Activity</button><button class="btn sm ghost" data-r="admin,developer" onclick="tab('set')">Settings</button><button class="btn sm ghost" data-r="admin,developer" onclick=out()>Log out</button></div>
+<div id=app class=wrap style="display:none"><div class=row><button class="btn sm" data-r="admin,developer" onclick="tab('dash')">Dashboard</button><button class="btn sm ghost" data-r="admin" onclick="tab('scan')">Scanner</button><button class="btn sm ghost" data-r="admin,developer" onclick="tab('gms')">Games</button><button class="btn sm ghost" data-r="developer" onclick="tab('ped')">Photo editor</button><button class="btn sm ghost" data-r="admin,developer" onclick="tab('tpl')">Ticket template</button><button class="btn sm ghost" data-r="developer" onclick="tab('hed')">Home content</button><button class="btn sm ghost" data-r="developer" onclick="tab('txt')">All website text</button><button class="btn sm ghost" data-r="developer" onclick="tab('act')">Activity</button><button class="btn sm ghost" data-r="admin,developer" onclick="tab('set')">Settings</button><button class="btn sm ghost" data-r="admin,developer" onclick=out()>Log out</button></div>
+<div id=gms style="display:none"><div class=row><select id=gm_f onchange=drawG()><option value="">All games<option value=hadees>Hadees Musabaqa<option value=spot>Spot Alfiya</select><button class="btn sm" onclick=csvG()>Download CSV</button></div><p id=gm_c style="color:var(--muted)"></p><div style="overflow-x:auto"><table><thead><tr><th>Reg No<th>Game<th>Name<th>Phone<th>Division<th>Registered<th></thead><tbody id=gm_tb></tbody></table></div></div>
 <div id=dash><div id=stats></div><div id=charts></div><div class=row><input id=fq placeholder="Search name, phone, ID" oninput=draw(1)><select id=fs onchange=draw(1)><option value="">All status<option value=in>Checked in<option value=pending>Pending</select>
 <input id=fd placeholder=Division oninput=draw(1)><input id=fc placeholder=Campus oninput=draw(1)><input id=fn placeholder="Native sector" list=seclist oninput=draw(1)></div>
 <div class=row><button class="btn sm" onclick=csv()>CSV</button><button class="btn sm" onclick=xlsx()>Excel</button><button class="btn sm" onclick=pdfRep()>PDF</button><button class="btn sm" onclick=wordRep()>Word</button><button class="btn sm" onclick=pngRep()>PNG</button><button class="btn sm ghost" onclick=print()>Print</button><button class="btn sm ghost" onclick=load()>Refresh</button></div>
@@ -301,8 +313,9 @@ const SB_URL='https://rsllyegxjgxulqxcfdlg.supabase.co',SB_KEY='sb_publishable_8
 const sb=SB_URL?supabase.createClient(SB_URL,SB_KEY):null;
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
 function go(id){document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===id))}
+const REG_OPEN=false;
 function route(){const h=location.hash.slice(1);
- if(h==='register')go('register');else if(h==='admin'){go('admin');adminInit('admin')}else if(h==='developer'){go('developer');adminInit('developer')}
+ if(h==='register')go(REG_OPEN?'register':'regclosed');else if(h==='games'){go('games');showGames()}else if(/^game=/.test(h)){go('gform');showGameForm(h.slice(5))}else if(/^gv?=/.test(h)){go('ticket');showGameTicket(h)}else if(h==='admin'){go('admin');adminInit('admin')}else if(h==='developer'){go('developer');adminInit('developer')}
  else if(/^[tv]=/.test(h)||h==='preview'){go('ticket');showTicket(h)}else go('home');window.scrollTo(0,0)}
 addEventListener('hashchange',route);
 
@@ -378,7 +391,7 @@ function regPoster(){const e=document.getElementById('rpmedia');if(!e)return;e.i
 (function(){const h=document.getElementById('hfoot'),r=document.getElementById('rfoot');if(!h||!r)return;const sy=()=>{r.textContent=h.textContent};sy();new MutationObserver(sy).observe(h,{childList:true,characterData:true,subtree:true})})();
 
 // ---------- registration ----------
-async function reg(){re.textContent='';if(!$('category').value)return re.textContent='Please select your category.';if(!$('division').value)return re.textContent='Please select your division.';const se=window.sectorErr&&sectorErr();if(se)return re.textContent=se;if(!sb)return re.textContent='Site not configured (Supabase keys missing).';rg.disabled=true;
+async function reg(){re.textContent='';if(!REG_OPEN)return re.textContent='Registration is closed.';if(!$('category').value)return re.textContent='Please select your category.';if(!$('division').value)return re.textContent='Please select your division.';const se=window.sectorErr&&sectorErr();if(se)return re.textContent=se;if(!sb)return re.textContent='Site not configured (Supabase keys missing).';rg.disabled=true;
  const P={p_name:$('name').value.trim().toUpperCase(),p_phone:$('phone').value,p_campus:$('campus').value.trim().toUpperCase(),p_division:$('division').value.toUpperCase(),p_sector:$('sector').value.trim().toUpperCase()};
  let{data,error}=await sb.rpc('register_student',{...P,p_category:$('category').value});
  if(error&&/p_category|PGRST202|schema cache/i.test((error.code||'')+' '+error.message))({data,error}=await sb.rpc('register_student',P));
@@ -416,6 +429,64 @@ async function draw1(d){await siteP;let bg=SITE.ticket?await img(SITE.ticket):nu
  pdf.onclick=()=>{const p=new jspdf.jsPDF({unit:'mm',format:[105,175]});p.addImage(url(),'PNG',0,0,105,175);p.save(nm+'.pdf')};
  prt.onclick=()=>{const w=open('');w.document.write(`<img src="${url()}" style="width:100%;max-width:105mm"><script>onload=()=>print()<\/script>`);w.document.close()}}
 
+// ---------- games registration ----------
+const GAMES={hadees:{name:'Hadees Musabaqa',pre:'HM'},spot:{name:'Spot Alfiya',pre:'SA'}},GMAX=30;let GK='';
+const gLabel=(g,n)=>(GAMES[g]?GAMES[g].pre:'G')+'-'+String(n).padStart(3,'0');
+async function gCounts(){if(!sb)return null;const{data,error}=await sb.rpc('game_counts');return error?null:(data||{})}
+async function showGames(){const c=await gCounts();
+ gcards.innerHTML=Object.keys(GAMES).map(k=>{const n=c?(c[k]||0):null,full=n!==null&&n>=GMAX;
+  return `<div class="glass gc"><div><small>Game</small><h3>${GAMES[k].name}</h3><p>${n===null?'Seat count unavailable':full?'All '+GMAX+' seats filled':(GMAX-n)+' of '+GMAX+' seats left'}</p></div>${full?'<span class="pill pn">Registration closed</span>':`<a class=btn href="#game=${k}">Register</a>`}</div>`}).join('')}
+async function showGameForm(k){if(!GAMES[k]){location.hash='games';return}GK=k;gm_t.textContent=GAMES[k].name+' registration';gm_e.textContent='';gm_s.textContent='';gm_box.style.display='';
+ const c=await gCounts();if(c){const n=c[k]||0;if(n>=GMAX){gm_s.innerHTML='<span class=closed>Registration closed – all '+GMAX+' seats are filled.</span>';gm_box.style.display='none'}else gm_s.textContent=(GMAX-n)+' of '+GMAX+' seats left'}}
+async function regGame(){gm_e.textContent='';const name=gm_name.value.trim(),phone=gm_phone.value.replace(/\D/g,''),div=gm_div.value;
+ if(!name)return gm_e.textContent='Please enter your name.';if(!/^\d{10}$/.test(phone))return gm_e.textContent='Enter a valid 10-digit phone number.';if(!div)return gm_e.textContent='Please select your division.';
+ if(!sb)return gm_e.textContent='Site not configured (Supabase keys missing).';gm_b.disabled=true;
+ const{data,error}=await sb.rpc('register_game',{p_game:GK,p_name:name.toUpperCase(),p_phone:phone,p_division:div});gm_b.disabled=false;
+ if(error)return gm_e.textContent=error.message;location.hash='g='+data.token}
+async function showGameTicket(h){if(!sb){tm.textContent='Site not configured.';return}
+ const view=h[1]==='v',tk=h.slice(view?3:2);const r=await sb.rpc('get_game_ticket',{p_token:tk});const d=r.data;
+ if(!d){tm.textContent='Ticket not found.';return}d.label=gLabel(d.game,d.reg_no);d.gname=(GAMES[d.game]||{name:d.game}).name;d.tk=tk;
+ const row=document.querySelector('#ticket .row');
+ if(view){tm.innerHTML=`<b>${esc(d.gname)} ticket ${d.label}</b><br>${esc(d.name)}`;c.style.display='none';row.style.display='none';return}
+ c.style.display='';row.style.display='';
+ await Promise.all(['800 40px Manrope','500 40px Manrope','700 40px Manrope'].map(f=>document.fonts.load(f,'ABC')));
+ paintGame(d);tm.textContent='';
+ const nm='game-ticket-'+d.label,url=()=>c.toDataURL('image/png');
+ png.onclick=()=>{const a=document.createElement('a');a.href=url();a.download=nm+'.png';a.click()};
+ pdf.onclick=()=>{const p=new jspdf.jsPDF({unit:'mm',format:[105,175]});p.addImage(url(),'PNG',0,0,105,175);p.save(nm+'.pdf')};
+ prt.onclick=()=>{const w=open('');w.document.write(`<img src="${url()}" style="width:100%;max-width:105mm"><script>onload=()=>print()<\/script>`);w.document.close()}}
+function paintGame(d){x.setTransform(S,0,0,S,0,0);x.letterSpacing='0px';
+ const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#04121f');g.addColorStop(.55,'#0b2a42');g.addColorStop(1,'#123f63');x.fillStyle=g;x.fillRect(0,0,W,H);
+ const rg=x.createRadialGradient(480,260,20,480,260,640);rg.addColorStop(0,'rgba(124,203,230,.30)');rg.addColorStop(1,'rgba(124,203,230,0)');x.fillStyle=rg;x.fillRect(0,0,W,H);
+ x.strokeStyle='rgba(171,224,240,.35)';x.lineWidth=3;x.beginPath();x.roundRect(40,40,W-80,H-80,48);x.stroke();
+ x.letterSpacing='6px';t('SSF MALAPPURAM WEST',480,135,26,'#7CCBE6','700','center',null,'Manrope');
+ x.letterSpacing='0px';t('MUTHA’ALLIMS',480,245,92,'#EAF7FF','800','center',820,'Manrope');t('CONFERENCE',480,335,92,'#EAF7FF','800','center',820,'Manrope');
+ x.letterSpacing='5px';t('SAMASTHA CENTENARY',480,395,26,'#88a9bf','600','center',null,'Manrope');x.letterSpacing='0px';
+ x.strokeStyle='rgba(171,224,240,.4)';x.lineWidth=2;x.beginPath();x.moveTo(140,450);x.lineTo(440,450);x.moveTo(520,450);x.lineTo(820,450);x.stroke();
+ x.fillStyle='#ABE0F0';x.beginPath();x.moveTo(480,436);x.lineTo(494,450);x.lineTo(480,464);x.lineTo(466,450);x.closePath();x.fill();
+ x.letterSpacing='8px';t('GAME TICKET',480,525,28,'#7CCBE6','700','center',null,'Manrope');x.letterSpacing='0px';
+ t(d.gname.toUpperCase(),480,615,76,'#ABE0F0','800','center',820,'Manrope');
+ rr(180,670,600,200,40,'rgba(255,255,255,.08)');x.strokeStyle='rgba(171,224,240,.3)';x.lineWidth=2;x.beginPath();x.roundRect(180,670,600,200,40);x.stroke();
+ x.letterSpacing='5px';t('REG. NUMBER',480,728,24,'#88a9bf','700','center',null,'Manrope');x.letterSpacing='0px';
+ t(d.label,480,830,116,'#fff','800','center',540,'Manrope');
+ rr(320,905,320,320,36,'#fff');const q=qrcode(0,'M');q.addData(location.href.split('#')[0]+'#gv='+d.tk);q.make();const n=q.getModuleCount(),cs=270/n;
+ x.fillStyle='#04121f';for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(q.isDark(r,k))x.fillRect(345+k*cs,930+r*cs,cs+.4,cs+.4);
+ t(d.name.toUpperCase(),480,1320,52,'#fff','800','center',780,'Manrope');
+ t(d.division,480,1385,34,'#ABE0F0','700','center',780,'Manrope');
+ t(d.phone,480,1440,30,'#b8d3e3','500','center',780,'Manrope');
+ x.letterSpacing='3px';t('19 NOVEMBER 2026 · VENGARA, MALAPPURAM',480,1522,22,'#88a9bf','600','center',820,'Manrope');x.letterSpacing='0px'}
+
+// ---------- games (admin) ----------
+let GR=[];
+async function loadG(){const{data,error}=await sb.from('game_registrations').select('*').order('game').order('reg_no');if(error){gm_tb.innerHTML='<tr><td>'+esc(error.message);return}GR=data;drawG()}
+function drawG(){const f=GR.filter(r=>!gm_f.value||r.game===gm_f.value);
+ gm_c.textContent=Object.keys(GAMES).map(k=>GAMES[k].name+': '+GR.filter(r=>r.game===k).length+'/'+GMAX).join('   ·   ');
+ gm_tb.innerHTML=f.map(r=>`<tr><td>${gLabel(r.game,r.reg_no)}<td>${esc((GAMES[r.game]||{}).name)}<td>${esc(r.name)}<td>${esc(r.phone)}<td>${esc(r.division)}<td>${new Date(r.created_at).toLocaleString()}<td><button class="btn sm ghost" onclick="delG(${r.id})">Delete</button>`).join('')}
+async function delG(id){if(confirm('Delete this game registration? The seat will open again.')){await sb.from('game_registrations').delete().eq('id',id);log('delete game reg','#'+id);loadG()}}
+function csvG(){const e=v=>`"${String(v??'').replace(/"/g,'""').replace(/^([=+\-@])/,"'$1")}"`;const f=GR.filter(r=>!gm_f.value||r.game===gm_f.value);
+ const L=[['Reg No','Game','Name','Phone','Division','Registered'],...f.map(r=>[gLabel(r.game,r.reg_no),(GAMES[r.game]||{}).name,r.name,r.phone,r.division,r.created_at])];
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+L.map(r=>r.map(e).join(',')).join('\n')],{type:'text/csv'}));a.download='game-registrations.csv';a.click()}
+
 // ---------- admin ----------
 let rows=[],pg=1,sc,busy=false;
 const ADMIN_DOMAIN='admin.sammelanam.in'; // admin usernames are stored in Supabase as  username@ADMIN_DOMAIN
@@ -448,7 +519,7 @@ async function del(id){if(confirm('Delete this registration permanently? The rem
 function csv(){log('export','csv');const e=v=>`"${String(v??'').replace(/"/g,'""').replace(/^([=+\-@])/,"'$1")}"`;
  const L=[['Registration ID','Name','Phone','Campus','Division','Native sector','Category','Registered','Attendance','Checked in at'],...filtered().map(r=>[no(r),r.name,r.phone,r.campus,r.division,r.sector,r.category||'',r.created_at,r.checked_in_at?'Checked in':'Pending',r.checked_in_at||''])];
  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+L.map(r=>r.map(e).join(',')).join('\n')],{type:'text/csv'}));a.download='registrations.csv';a.click()}
-function tab(k){$('dash').style.display=k==='dash'?'block':'none';$('scan').style.display=k==='scan'?'block':'none';$('hed').style.display=k==='hed'?'block':'none';if(k==='hed')fillForm();$('ped').style.display=k==='ped'?'block':'none';if(k==='ped')pedLoad();$('tpl').style.display=k==='tpl'?'block':'none';if(k==='tpl')tplShow();$('act').style.display=k==='act'?'block':'none';if(k==='act')loadAct();$('txt').style.display=k==='txt'?'block':'none';if(k==='txt')txtForm();$('set').style.display=k==='set'?'block':'none';
+function tab(k){$('gms').style.display=k==='gms'?'block':'none';if(k==='gms')loadG();$('dash').style.display=k==='dash'?'block':'none';$('scan').style.display=k==='scan'?'block':'none';$('hed').style.display=k==='hed'?'block':'none';if(k==='hed')fillForm();$('ped').style.display=k==='ped'?'block':'none';if(k==='ped')pedLoad();$('tpl').style.display=k==='tpl'?'block':'none';if(k==='tpl')tplShow();$('act').style.display=k==='act'?'block':'none';if(k==='act')loadAct();$('txt').style.display=k==='txt'?'block':'none';if(k==='txt')txtForm();$('set').style.display=k==='set'?'block':'none';
  if(k==='scan'){setMode(MODE)}if(k==='scan'&&!sc){sc=new Html5Qrcode('reader');sc.start({facingMode:'environment'},{fps:10,qrbox:240},c=>check(c,false)).catch(()=>res.innerHTML='<div class="big bad">Camera unavailable. Use manual ID.</div>')}}
 let MODE='auto',scanned=0,lastCode='',lastAt=0;
 function setMode(m){MODE=m;try{localStorage.setItem('scanmode',m)}catch(e){}
@@ -539,7 +610,7 @@ const peCss=s=>`object-fit:${s.fit||'cover'};transform:translate(${s.ox||0}%,${s
 function mediaTag(s,h){const st=h?'':` style="${peCss(s)}"`;return SITE.mtype==='video'?`<video src="${esc(SITE.media)}"${st} ${h?'controls':'autoplay'} muted loop playsinline></video>`:`<img src="${esc(SITE.media)}"${st} alt="">`}
 function media(h){return SITE.media?mediaTag(SITE,h):''}
 function applySite(){const d=SITE;$('pmedia').innerHTML=media();regPoster();document.querySelector('.poster').style.aspectRatio=d.ratio||'785/873';
- if(d.sub){$('hsub').textContent=d.sub;animText($('hsub'))}if(d.btn1)$('b1').textContent=d.btn1;if(d.btn2)$('b2').textContent=d.btn2;if(d.foot)$('hfoot').textContent=d.foot;
+ if(d.sub){$('hsub').textContent=d.sub;animText($('hsub'))}if(d.btn2)$('b2').textContent=d.btn2;if(d.foot)$('hfoot').textContent=d.foot;
  if(d.date)TARGET=new Date(d.date);(d.cards||[]).forEach((c,i)=>{const e=$('hc').children[i];if(e&&c){e.children[0].textContent=c.l;e.children[1].textContent=c.t;e.children[2].textContent=c.p}});applyTxt()}
 async function loadSite(){if(!sb)return;const{data}=await sb.from('site_content').select('data').eq('id',1).maybeSingle();if(data&&data.data){SITE=data.data;applySite()}}
 function fillForm(){const d=SITE,c=[...$('hc').children];$('e_ratio').value=d.ratio||'785/873';$('e_sub').value=$('hsub').textContent;$('e_b1').value=$('b1').textContent;$('e_b2').value=$('b2').textContent;$('e_foot').value=$('hfoot').textContent;
